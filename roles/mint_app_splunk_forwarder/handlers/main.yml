@@ -1,0 +1,13 @@
+---
+
+- name: Splunk accept license
+  command:
+    cmd: /opt/splunkforwarder/bin/splunk start --accept-license --answer-yes --no-prompt
+
+- name: Splunk enable boot-start
+  command:
+    cmd: /opt/splunkforwarder/bin/splunk enable boot-start
+
+- name: Splunk reload config
+  command:
+    cmd: /opt/splunkforwarder/bin/splunk restart

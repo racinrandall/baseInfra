@@ -1,0 +1,10 @@
+---
+# tasks file for profile.d
+- name: Copy history command profile
+  template: 
+    src: history-fmt.sh.j2
+    dest: /etc/profile.d/history-fmt.sh
+    owner: root
+    group: root
+    mode: 0755
+

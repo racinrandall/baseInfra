@@ -1,0 +1,5 @@
+---
+- name: Set History Format to show Date and Time
+  hosts: all
+  roles: 
+    - history-format

@@ -1,0 +1,27 @@
+/var/log/cron
+/var/log/maillog
+/var/log/messages
+/var/log/secure
+/var/log/snmpd.log
+/var/log/spooler
+/var/log/xferlog
+/var/log/iptables.log
+{
+    rotate 7
+    maxage 7
+    create 0600
+    sharedscripts
+    daily
+    missingok
+    postrotate
+    {%if ansible_distribution_major_version == "7" %} 
+	/bin/kill -HUP `cat /var/run/syslogd.pid 2> /dev/null` 2> /dev/null || true
+	/bin/kill -HUP `cat /var/run/rsyslogd.pid 2> /dev/null` 2> /dev/null || true
+    {% endif %}
+    {%if ansible_distribution_major_version == "8" %}
+    /usr/bin/systemctl kill -s HUP rsyslog.service >/dev/null 2>&1 || true
+    {% endif %}
+	endscript
+    compress
+}
+

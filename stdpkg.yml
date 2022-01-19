@@ -1,0 +1,5 @@
+---
+- name: Run STDPKG role
+  hosts: all
+  roles:
+    - stdpkg

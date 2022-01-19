@@ -1,0 +1,5 @@
+---
+- name: Change disks of VM
+  hosts: all
+  roles:
+    - modify_vm

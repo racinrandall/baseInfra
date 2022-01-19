@@ -1,0 +1,9 @@
+---
+- name: Deploy all base Infrastructure items for all hosts
+  hosts: all
+  roles:
+    - mint_app_splunk_forwarder
+    - dist_ca
+    - history-format
+    - logrotate
+    - stdpkg

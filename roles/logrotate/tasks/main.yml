@@ -1,0 +1,22 @@
+---
+
+- name: Set logrotate configuration file from template
+  template: 
+    src: logrotate.conf.j2
+    dest: /etc/logrotate.conf
+
+- name: Set logrotate.d syslog configuration from template
+  template: 
+    src: syslog.j2
+    dest: /etc/logrotate.d/syslog
+
+- name: Set logrotate.d btmp configuration from template
+  template: 
+    src: btmp.j2
+    dest: /etc/logrotate.d/btmp
+    
+- name: Set logrotate.d wtmp configuration from template
+  template: 
+    src: wtmp.j2
+    dest: /etc/logrotate.d/wtmp
+    

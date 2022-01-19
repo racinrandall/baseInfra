@@ -1,0 +1,11 @@
+---
+# tasks file for stdpkg
+- name: Install required packages
+  package:
+    name: "{{ pkginstall }}"
+    state: present
+
+- name: Remove packages not required
+  package:
+    name: "{{ pkgremove }}"
+    state: absent

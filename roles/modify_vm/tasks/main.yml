@@ -1,0 +1,28 @@
+---
+# tasks file for modify_vm
+- name: Include vars for Sat User
+  include_vars: user.yml
+
+- name: Lookup the VM we are working with
+  vmware.vmware_rest.vcenter_vm_info:
+    vcenter_hostname: "{{ vm_compute_resource }}.usmint.etreas.gov"
+    vcenter_username: "usmint\\{{ vmware_user }}"
+    vcenter_password: "{{ vmware_pass }}"
+    vcenter_validate_certs: false
+    filter_names:
+      - "{{ ansible_hostname }}"
+  register: vm_search
+  delegate_to: localhost
+
+- name: Lookup the VM we are working with
+  vmware.vmware_rest.vcenter_vm_info:
+    vcenter_hostname: "{{ vm_compute_resource }}.usmint.etreas.gov"
+    vcenter_username: "usmint\\{{ vmware_user }}"
+    vcenter_password: "{{ vmware_pass }}"
+    vcenter_validate_certs: false
+    vm: "{{ vm_search.value[0].vm }}"
+  register: search_results
+
+- name: Output VM info
+  debug:
+    var: search_results

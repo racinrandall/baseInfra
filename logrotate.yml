@@ -1,0 +1,5 @@
+---
+- name: Set Log Rotate 
+  hosts: all
+  roles: 
+    - logrotate

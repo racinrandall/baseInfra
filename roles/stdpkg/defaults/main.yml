@@ -1,0 +1,14 @@
+---
+# defaults file for stdpkg
+pkginstall:
+  - tree
+  - vim
+  - ipa-client
+  - audispd-plugins
+  - setroubleshoot
+  - katello-agent
+  - katello-host-tools
+  - katello-host-tools-tracer
+
+pkgremove:
+  - fprintd  

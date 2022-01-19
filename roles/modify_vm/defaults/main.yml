@@ -1,0 +1,10 @@
+---
+# defaults file for modify_vm
+primary_disk:
+additional_disks:
+  - pv_name: 
+    size:
+  
+vm_location:
+vm_compute_resource: "{{ vm_location }}vcsa01"
+vmware_user: "{{ vm_location | upper }}_SAT_SvcAcc_PQD"

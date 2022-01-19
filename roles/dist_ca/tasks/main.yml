@@ -1,0 +1,22 @@
+---
+- name: copy Mint CA chain
+  copy:
+    src: mintbundle.crt
+    dest: /etc/pki/ca-trust/source/anchors/mintbundle.crt
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: copy Treasury Proxy CA chain
+  copy:
+    src: ssl.services.treasury.gov.cer
+    dest: /etc/pki/ca-trust/source/anchors/ssl.services.treasury.gov.cer
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Enable Update Trust
+  shell: update-ca-trust force-enable
+
+- name: Extract CA Trust
+  shell: update-ca-trust extract

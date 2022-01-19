@@ -1,0 +1,4 @@
+- name:  Distribute US Mint CA certificates
+  hosts: all
+  roles:
+    - dist_ca

@@ -1,0 +1,7 @@
+---
+
+mint_app_splunk_server: '10.102.89.133:8089'
+mint_app_splunk_forwarder_admin_user: 'admin'
+
+# Created using 'splunk hash-passwd <password>'
+mint_app_splunk_forwarder_admin_hashed_password: '$6$1gQfCNblg3mwXUEq$l9fhAU8SCdl0br1mX70oZTc6NVbq62laHiXBQfPogmuNe2r7nw/xjuo6gjeq1mq6ssewzaOJ1S3nD0ASThGHL/'

@@ -1,0 +1,33 @@
+---
+
+- name: Install Splunk Forwarder
+  yum:
+    name:
+      - splunkforwarder
+    state: present
+
+- name: Place marker file for first time setup
+  copy:
+    dest: /opt/splunkforwarder/mint-configured
+    src: mint-configured
+  notify:
+    - Splunk accept license
+    - Splunk enable boot-start
+    
+- name: Place user seed file
+  template:
+    src: user-seed.conf.j2
+    dest: /opt/splunkforwarder/etc/system/local/user-seed.conf
+    owner: splunk
+    group: splunk
+    mode: 0600
+
+- name: Place deployment template
+  template:
+    src: deploymentclient.conf.j2
+    dest: /opt/splunkforwarder/etc/system/local/deploymentclient.conf
+    owner: splunk
+    group: splunk
+    mode: 0600
+  notify: Splunk reload config
+

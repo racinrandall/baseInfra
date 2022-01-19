@@ -1,0 +1,6 @@
+---
+
+- name: Install Mint Security App - Splunk Forwarder
+  hosts: all
+  roles:
+    - mint_app_splunk_forwarder
