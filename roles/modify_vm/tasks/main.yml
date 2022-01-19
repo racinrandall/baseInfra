@@ -34,7 +34,6 @@
     username: "administrator@vsphere.randall"
     password: "{{ vmware_pass }}"
     validate_certs: "{{ cert_val }}"
-    folder: "{{ vm_folder }}"
     name: "{{ vm_name }}"
     datacenter: HPG8
     name: "{{ ansible_hostname }}"
