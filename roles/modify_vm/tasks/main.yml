@@ -5,8 +5,8 @@
 
 - name: Lookup the VM we are working with
   vmware.vmware_rest.vcenter_vm_info:
-    vcenter_hostname: "{{ vm_compute_resource }}.usmint.etreas.gov"
-    vcenter_username: "usmint\\{{ vmware_user }}"
+    vcenter_hostname: "vcenter.randalllabs.com"
+    vcenter_username: "administrator@vsphere.randall"
     vcenter_password: "{{ vmware_pass }}"
     vcenter_validate_certs: false
     filter_names:
@@ -16,8 +16,8 @@
 
 - name: Lookup the VM we are working with
   vmware.vmware_rest.vcenter_vm_info:
-    vcenter_hostname: "{{ vm_compute_resource }}.usmint.etreas.gov"
-    vcenter_username: "usmint\\{{ vmware_user }}"
+    vcenter_hostname: "vcenter.randalllabs.com"
+    vcenter_username: "administrator@vsphere.randall"
     vcenter_password: "{{ vmware_pass }}"
     vcenter_validate_certs: false
     vm: "{{ vm_search.value[0].vm }}"
