@@ -22,6 +22,7 @@
     vcenter_validate_certs: false
     vm: "{{ vm_search.value[0].vm }}"
   register: search_results
+  delegate_to: localhost
 
 - name: Output VM info
   debug:
